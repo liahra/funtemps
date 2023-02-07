@@ -20,7 +20,8 @@ func TestGetFunFacts(t *testing.T) {
 
 	// Her må du legge inn korrekte testverdier
 	tests := []test{
-	 {input: "sun", want: "Temperatur på ytre lag av Solen 5506.85°C.\nTemperatur i Solens kjerne er 15 000 000°C."},
+		{input: "sun", want: "Temperatur på ytre lag av Solen 5506.85°C.\nTemperatur i Solens kjerne er 15 000 000°C."},
+	 	{input: "luna", want: "Temperatur på Månens overflate om natten: -183\nTemperatur på Månens overflate om dagen: 106."},
 	}
 
 	for _, tc := range tests {

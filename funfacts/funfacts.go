@@ -15,6 +15,13 @@ package funfacts
 */
 
 func GetFunFacts(about string) string {
-  var fact string = "Temperatur på ytre lag av Solen 5506.85°C.\nTemperatur i Solens kjerne er 15 000 000°C."
-  return fact
+	var sunFact string = "Temperatur på ytre lag av Solen 5506.85°C.\nTemperatur i Solens kjerne er 15 000 000°C."
+	var lunaFact string = "Temperatur på Månens overflate om natten: -183\nTemperatur på Månens overflate om dagen: 106."
+
+	if about == "sun" {
+		return sunFact
+	} else {
+		return lunaFact
+	}
+
 }
