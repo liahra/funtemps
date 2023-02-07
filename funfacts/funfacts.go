@@ -1,5 +1,7 @@
 package funfacts
 
+import "strings"
+
 /**
   Implementer funfacts-funksjon:
     GetFunFacts(about string) []string
@@ -14,17 +16,25 @@ package funfacts
   }
 */
 
+type FunFacts struct {
+  Sun []string
+  Luna []string
+  Terra []string
+}
+
 func GetFunFacts(about string) string {
-	var sunFact string = "Temperatur på ytre lag av Solen 5506.85°C.\nTemperatur i Solens kjerne er 15 000 000°C."
-	var lunaFact string = "Temperatur på Månens overflate om natten: -183\nTemperatur på Månens overflate om dagen: 106."
-  var terraFact string = "Høyeste temperatur målt på Jordens overflate: 56.7\nLaveste temperatur målt på Jordens overflate: -89.4\nTemperatur i Jordens indre kjerne: 9392K."
-
-	if about == "sun" {
-		return sunFact
-	} else if about == "luna"{
-		return lunaFact
-	} else {
-    return terraFact
+  facts := FunFacts {
+    []string {"Temperatur på ytre lag av Solen 5506.85°C.", "Temperatur i Solens kjerne er 15 000 000°C."}, 
+    []string {"Temperatur på Månens overflate om natten: -183", "Temperatur på Månens overflate om dagen: 106."}, 
+    []string {"Høyeste temperatur målt på Jordens overflate: 56.7", "Laveste temperatur målt på Jordens overflate: -89.4", "Temperatur i Jordens indre kjerne: 9392K."},
   }
-
+	
+  
+  if about == "sun" {
+		return strings.Join(facts.Sun, "\n")
+	} else if about == "luna"{
+		return strings.Join(facts.Luna, "\n")
+	} else {
+    return strings.Join(facts.Terra, "\n")
+  }
 }
