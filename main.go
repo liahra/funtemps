@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"strings"
-	"github.com/liahra/funtemp/conv"
-	"github.com/liahra/funtemp/funfacts"
 
+	"github.com/liahra/funtemps/conv"
+	"github.com/liahra/funtemps/funfacts"
 )
 
 // Definerer flag-variablene i hoved-"scope"
@@ -110,7 +110,6 @@ func main() {
 		}
 	}
 }
-
 
 // Funksjonen sjekker om flagget er spesifisert på kommandolinje
 func isFlagPassed(name string) bool {
