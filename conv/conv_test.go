@@ -31,7 +31,7 @@ func TestCelsiusToFahrenheit(t *testing.T) {
 	}
 
 	tests := []test{
-		{input: (float64(134) - 32) * (5.0 / 9), want: 134},
+		{input: 56.67, want: 134},
 		{input: 0, want: 32},
 	}
 
