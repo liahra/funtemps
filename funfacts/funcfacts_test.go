@@ -12,7 +12,14 @@ func TestGetFunFacts(t *testing.T) {
 		want []string 
 	}
 
-	facts := [7]string{"Temperatur på ytre lag av Solen: ", "Temperatur i Solens kjerne: ", "Temperatur på Månens overflate om natten: ", "Temperatur på Månens overflate om dagen: ", "Høyeste temperatur målt på Jordens overflate: ", "Laveste temperatur målt på Jordens overflate: ", "Temperatur i Jordens indre kjerne: "}
+	facts := [7]string{
+		"Temperatur på ytre lag av Solen: ", 
+		"Temperatur i Solens kjerne: ", 
+		"Temperatur på Månens overflate om natten: ", 
+		"Temperatur på Månens overflate om dagen: ", 
+		"Høyeste temperatur målt på Jordens overflate: ", 
+		"Laveste temperatur målt på Jordens overflate: ", 
+		"Temperatur i Jordens indre kjerne: "}
 	
 	tests := []test{
 		{

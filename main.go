@@ -111,7 +111,7 @@ func main() {
 	}
 }
 
-// Funksjonen sjekker om flagget er spesifisert på kommandolinje
+// sjekker om flagget er spesifisert på kommandolinje
 func isFlagPassed(name string) bool {
 	found := false
 	flag.Visit(func(f *flag.Flag) {
@@ -124,27 +124,33 @@ func isFlagPassed(name string) bool {
 
 // Formaterer tall til ønsket format
 func formatNumber(convValue float64) string {
+	// Setter til string og  input til 2 desimaler uansett
 	convValueString := fmt.Sprintf("%.2f", convValue)
-	sign := ""
 
+	// Lagrer et eventuelt fortegn i en egen variabel
+	sign := ""
 	if convValueString[0:1] == "-" {
 		sign = "-"
 		convValueString = convValueString[1:]
 	}
 
+	// Deler opp slik at vi får en slice 
 	numSlice := strings.Split(convValueString, ".")
 	mainNum := numSlice[0]
+	
+	// Begynner på bakdelen av stringen og trekker ut tre og tre siffer, og legger de til i begynnelsen av output string sammen med et mellomrom
+	// Hvis i -3 er mindre enn 0, vil vi få en index som er mindre enn null. Derfor må vi starte på index = 0 eksplisitt, for å få med de siste sifrene på behynnelsen av tallet 
 	outputString := ""
-
 	for i := len(mainNum); i > 0; i = i - 3 {
-		if i-3 < 0 {
+		if i - 3 < 0 {
 			outputString = mainNum[0:i] + " " + outputString
 		} else {
 			outputString = mainNum[i-3:i] + " " + outputString
 		}
 	}
 
-	outputString = outputString[0 : len(outputString)-1] // Fordi outputstring av en eller annen grunn alltid har et mellomrom på slutten
+	// for å fjerne mellomrommet på slutten i output string, som alltid kommer første gang for-løkka over kjøres.
+	outputString = outputString[0 : len(outputString)-1] 
 	if numSlice[1] != "00" {
 		outputString = outputString + "." + numSlice[1]
 	}
