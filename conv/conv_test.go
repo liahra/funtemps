@@ -13,14 +13,30 @@ func TestFarhenheitToCelsius(t *testing.T) {
 
 	tests := []test{
 		{input: 134, want: 56.67},
-		{input: 32, want: 0},
+		{input: 275, want: 135},
 	}
 
 	for _, tc := range tests {
+		// Alternativ 1
+		// Konverter got til string med 2 desimaler, og så tilbake til float. Gir riktig svar med DeepEqual
+		// got, _ := strconv.ParseFloat(fmt.Sprintf("%.2f", FahrenheitToCelsius(tc.input)), 64)
+
+		// Alternativ 2
+		// Tester på differanse mellom got og want lik mindre enn en gitt toleranse.
+		// got := FahrenheitToCelsius(tc.input)
+		// tol := 0.005
+		// diff := math.Abs(got - tc.want)
+		// if diff > tol {
+		// 	t.Errorf("Tolerance set to %v, got difference %v", tol, diff)
+		// 	t.Errorf("Wanted: %v, got: %v", tc.want, got)
+		// }
+
+		// Alternativ 3 (original)
+		// Tester på likhet med DeepEqual
 		got := FahrenheitToCelsius(tc.input)
-		if !reflect.DeepEqual(tc.want, got) {
+		 if !reflect.DeepEqual(tc.want, got) {
 			t.Errorf("expected: %v, got: %v", tc.want, got)
-		}
+		} 
 	}
 }
 
